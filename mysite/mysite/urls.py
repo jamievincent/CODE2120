@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'example/', include('example.urls')),
     path(r'c/', include('cekyl.urls')),
+    #dfgh
 
 ]
