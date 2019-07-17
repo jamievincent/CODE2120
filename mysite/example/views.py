@@ -20,6 +20,36 @@ def example_get(request, var_a, var_b):
 		errorType = str(exc_type)
 		return JsonResponse({"isError": True, "error":str(e), "errorType":errorType, "function":fname, "line":exc_tb.tb_lineno, "log":log})
 
+def example_get(request, var_a, var_b):
+	try:
+		returnob = {
+		"data": "cool %s! You are %s" %(var_a, var_b),
+		}
+		return JsonResponse(returnob)
+	except Exception as e:
+		exc_type, exc_obj, exc_tb = sys.exc_info()
+		other = sys.exc_info()[0].__name__
+		fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+		errorType = str(exc_type)
+		return JsonResponse({"isError": True, "error":str(e), "errorType":errorType, "function":fname, "line":exc_tb.tb_lineno, "log":log})
+
+def count(request, start, stop, step):
+	try:
+		count = 0
+    	count_list = []
+    	for count in range(start,stop,step):
+    		count_list.append(count)
+
+		return JsonResponse(count_list)
+	except Exception as e:
+		exc_type, exc_obj, exc_tb = sys.exc_info()
+		other = sys.exc_info()[0].__name__
+		fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+		errorType = str(exc_type)
+		return JsonResponse({"isError": True, "error":str(e), "errorType":errorType, "function":fname, "line":exc_tb.tb_lineno, "log":log})
+
+
+
 @csrf_exempt
 def example_post(request):
 	log = []
@@ -68,3 +98,19 @@ def fib(request):
 			return JsonResponse({"isError": True, "error":str(e), "errorType":errorType, "function":fname, "line":exc_tb.tb_lineno, "log":log})
 	else:
 		return JsonResponse(jsob)
+
+@csrf_exempt
+def example_post(request):
+	log = []
+	if request.method == "POST":
+		try:
+			data = request.POST["data"]
+			return JsonResponse({"log":log})
+		except Exception as e:
+			exc_type, exc_obj, exc_tb = sys.exc_info()
+			other = sys.exc_info()[0].__name__
+			fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+			errorType = str(exc_type)
+			return JsonResponse({"isError": True, "error":str(e), "errorType":errorType, "function":fname, "line":exc_tb.tb_lineno, "log":log})
+	else:
+		return HttpResponse("ONLY POST REQUESTS")
