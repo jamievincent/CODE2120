@@ -6,15 +6,17 @@ from .models import *
 import os, sys 
 
 # Create your views here.
-def count(request, var_a, stop, var_b):
-	var_a = start
-	var_b = step
-	stop = 100
+def count(request, var_a, var_b):
 	try:
-		count = 0
+		var_a = start
+		var_b = step
+		stop = 100
+    	count = start
     	count_list = []
-    	for count in range(start,stop,step):
-    		count_list.append(count)
+    	while(count<stop):
+        	count_list.append(count)
+       	 	count = count + step
+    return count_list
 		return JsonResponse(count_list)
 	except Exception as e:
 		exc_type, exc_obj, exc_tb = sys.exc_info()
