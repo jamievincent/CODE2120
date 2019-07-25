@@ -7,12 +7,12 @@ import os, sys
 
 # Create your views here.
 def count(request, var_a, var_b):
+	var_a = start
+	var_b = step
+	stop = 100
+    count = start
+    count_list = []
 	try:
-		var_a = start
-		var_b = step
-		stop = 100
-    	count = start
-    	count_list = []
     	while(count<stop):
         	count_list.append(count)
        	 	count = count + step
