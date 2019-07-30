@@ -10,12 +10,11 @@ def count(request, var_a, var_b):
 	var_a = start
 	var_b = step
 	stop = 100
-    count = start
     count_list = []
 	try:
-    	while(count<stop):
-        	count_list.append(count)
-       	 	count = count + step
+    	while(start<stop):
+        	count_list.append(start)
+       	 	start = start + step
     return count_list
 		return JsonResponse(count_list)
 	except Exception as e:
