@@ -6,10 +6,8 @@ from .models import *
 import os, sys 
 
 # Create your views here.
-def count(request, var_a, var_b):
+def count(request, start, step):
 	try:
-		var_a = start
-		var_b = step
 		stop = 100
 		count_list = []
 		while(start<stop):
