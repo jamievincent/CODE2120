@@ -13,7 +13,6 @@ def count(request, start, step):
 		while(start<stop):
 			count_list.append(start)
 			start = start + step
-			return count_list
 			return JsonResponse(count_list)
 	except Exception as e:
 		exc_type, exc_obj, exc_tb = sys.exc_info()
