@@ -9,6 +9,7 @@ import os, sys
 def count(request, start, step):
 	try:
 		stop = 100
+		log = []
 		count_list = []
 		while(start<stop):
 			count_list.append(start)
@@ -29,4 +30,4 @@ def count(request, start, step):
 			"log":log
 			})
 
-		log = []
+		
