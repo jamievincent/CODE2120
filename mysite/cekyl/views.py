@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 import json
 from .models import *
 import os, sys 
+import logs 
 
 # Create your views here.
 def count(request, start, step):
