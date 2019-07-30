@@ -10,10 +10,10 @@ def count(request, start, step):
 	try:
 		stop = 100
 		count_list = []
-		log = []
 		while(start<stop):
 			count_list.append(start)
 			start = start + step
+			return count_list
 			return JsonResponse(count_list)
 	except Exception as e:
 		exc_type, exc_obj, exc_tb = sys.exc_info()
@@ -28,3 +28,5 @@ def count(request, start, step):
 			"line":exc_tb.tb_lineno, 
 			"log":log
 			})
+
+		log = []
