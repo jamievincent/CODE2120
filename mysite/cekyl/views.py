@@ -11,6 +11,7 @@ def count(request, start, step):
 	try:
 		stop = 100
 		count_list = []
+		log = []
 		while(start<stop):
 			count_list.append(start)
 			start = start + step
